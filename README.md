@@ -8,3 +8,4 @@ This repository hosts the source code for our Team Website
 - [x] Create a develop branch
 - [x] Update readme
 - [X] Make initial commit tagging Jira Issue
+- [x] Initial merge with master branch
