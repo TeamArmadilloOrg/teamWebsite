@@ -1,0 +1,17 @@
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.center-optionA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-optionB {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
