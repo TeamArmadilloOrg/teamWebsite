@@ -9,6 +9,10 @@ body {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
+h1 {
+	text-align: center;
+}
+
 .center {
 	display: flex;
 	align-items: center;
@@ -18,7 +22,7 @@ body {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
-	width: 20%;
+	max-width: 20%;
 	border-radius: 10px;
 	margin: 30px;
 	background-color: rgb(243, 190, 122);
@@ -43,7 +47,8 @@ body {
 	font-size: 1.5vw;
 	background-color: rgb(243, 190, 122);
 }
-.card-text > h4, b {
+.card-text > h4,
+b {
 	font-size: 2vw;
 	background-color: rgb(243, 190, 122);
 }
