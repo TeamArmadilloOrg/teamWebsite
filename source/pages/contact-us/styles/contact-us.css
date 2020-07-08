@@ -1,4 +1,22 @@
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.section {
+	padding: 5px;
+}
+
+.item {
+	order: 1;
+	position: relative;
+	display: block;
+	width: auto;
+	text-align: left;
+}
+
 .btn-primary {
 	background-color: rgb(33, 221, 8);
 	color: white;
+	text-align: center;
 }

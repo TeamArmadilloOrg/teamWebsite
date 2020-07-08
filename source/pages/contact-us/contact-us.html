@@ -8,21 +8,24 @@
 	<title>Contact Us</title>
 </head>
 <body>
-	<div>
-		<label for="name" id="name">Name</label>
-		<input type="name" id="name" placeholder="pleae enter your name">
+	<div class="container">
+		<form action="">
+			<div class="section">
+				<label for="name" id="name">Name</label>
+				<input class="item" type="name" id="name" placeholder="Please enter your name">
+			</div>
+			<div class="section">
+				<label for="email" id="email">Email</label>
+				<input class="item" type="email" id="email" placeholder="Email address">
+			</div>
+			<div class="section">
+				<label for="request" id="request">How may we help you?</label>
+				<textarea class="item" name="request" id="request" cols="30" rows="10">Please enter your question here...</textarea>
+			</div>
+			<div class="section">
+				<button class="item button btn-primary" type="submit" id="SubmitBtn" style="width:80px;height:40px;">Submit</button>
+			</div>
+		</form>
 	</div>
-	<div>
-		<label for="email" id="email">Email</label>
-		<input type="email" id="email" placeholder="please enter your email address">
-	</div>
-	<div>
-		<label for="request" id="request">How can we help you?</label>
-		<input type="text" id="name" placeholder="Enter question here...">
-	</div>
-	<div>
-		<button class="item button btn-primary" type="submit" id="SubmitBtn">Submit</button>
-	</div>
-
 </body>
 </html>
