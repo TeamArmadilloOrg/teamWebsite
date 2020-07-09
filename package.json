@@ -1,5 +1,9 @@
 {
+	"scripts": {
+		"check": "prettier --check './source/'"
+	},
 	"devDependencies": {
-		"eslint": "^7.4.0"
+		"eslint": "^7.4.0",
+		"prettier": "^2.0.5"
 	}
 }
