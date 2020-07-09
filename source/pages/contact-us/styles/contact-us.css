@@ -3,12 +3,8 @@ body {
 }
 
 .container {
-	display: flex;
-	justify-content: center;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	margin-left: 490px;
-	margin-right: 490px;
+	max-width: 300px;
+	margin: 100px auto;
 	border: 3px solid black;
 	border-radius: 10px;
 	background-color: rgb(243, 190, 122);
@@ -16,10 +12,10 @@ body {
 
 .section {
 	padding: 5px;
+	margin-left: 10px;
 }
 
 .item {
-	order: 1;
 	position: relative;
 	display: block;
 	width: auto;
