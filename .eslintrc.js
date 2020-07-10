@@ -11,7 +11,7 @@ module.exports = {
 	},
 	rules: {
 		indent: ["warn", "tab"],
-		"max-len": ["error", { code: 100, tabWidth: 4 }],
+		"max-len": ["error", { code: 100, tabWidth: 4, ignoreStrings: true }],
 		"linebreak-style": ["error", "unix"],
 		quotes: ["warn", "double"],
 		semi: ["error", "always"],
