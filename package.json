@@ -1,6 +1,5 @@
 {
 	"scripts": {
-<<<<<<< HEAD
 		"check": "prettier --check './source/'",
 		"build": "webpack --env",
 		"build:development": "",
@@ -13,12 +12,5 @@
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.12",
 		"yargs": "^15.4.0"
-=======
-		"check": "prettier --check './source/'"
-	},
-	"devDependencies": {
-		"eslint": "^7.4.0",
-		"prettier": "^2.0.5"
->>>>>>> 6aeaaaf1c0c6b5a6fb31924a00e6c7921b388ab9
 	}
 }
