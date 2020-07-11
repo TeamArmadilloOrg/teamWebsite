@@ -1,4 +1,5 @@
-.projects-overview {
+#wrapper {
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,56 +9,64 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.project {
-  cursor: pointer;
-  position: relative;
-  padding: 10px 20px;
+section {
+  width: 200px;
+  height: 200px;
   margin: 20px;
-  background: rgba(202, 25, 25, 0.658);
-  font-size: 28px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  transition: -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  /* Fixing a bug in firefox */
+  -moz-backface-visibility: hidden;
 }
 
-.project:after, .project:before {
-  content: " ";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  border: 0px solid #fff;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-.project:after {
-  top: -1px;
-  left: -1px;
-  border-top: 5px solid #000;
-  border-left: 5px solid #000;
-}
-
-.project:before {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 5px solid #000;
-  border-right: 5px solid #000;
-}
-
-.project:hover {
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-
-.project:hover:before, .project:hover:after {
+.tile {
   width: 100%;
   height: 100%;
+  text-align: left;
+  line-height: 20px;
+  position: absolute;
+  border-radius: 20px;
+}
+
+p {
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.tile img {
+  width: 50%;
+  vertical-align: middle;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.front.tile {
+  background: antiquewhite;
+  z-index: 2;
+}
+
+.y .back.tile {
+  background: #a6192e;
+  -webkit-transform: rotateY(0.5turn);
+          transform: rotateY(0.5turn);
+}
+
+.y section:hover {
+  -webkit-transform: rotateY(0.5turn);
+          transform: rotateY(0.5turn);
 }
 /*# sourceMappingURL=projects.css.map */
