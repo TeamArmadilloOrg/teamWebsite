@@ -17,37 +17,48 @@ yargs
 	.version(false)
 	.help().argv;
 
+// Determine the environment set based on the flag passed to command,
+// an argument after --environment or --env
 const environment = yargs.argv.environment;
 
-class Directories {
-	constructor() {
-		this.build = path.join(__dirname, "build");
-		this.output = path.join(
-			this.build,
-			environment == "production" ? "public" : environment
-		);
+// a function to return an object with paths
+// to all of the directories inside the folder
+function Directories() {
+	this.build = path.join(__dirname, "build");
+	this.output = path.join(
+		this.build,
+		environment == "production" ? "public" : environment
+	);
 
-		this.source = path.join(__dirname, "source");
-		this.brand = path.join(this.source, "brand");
-		this.data = path.join(this.source, "data");
-		this.images = path.join(this.source, "images");
-		this.pages = path.join(this.source, "pages");
-		this.scripts = path.join(this.source, "scripts");
-		this.styles = path.join(this.source, "styles");
+	this.source = path.join(__dirname, "source");
+	this.brand = path.join(this.source, "brand");
+	this.data = path.join(this.source, "data");
+	this.images = path.join(this.source, "images");
+	this.pages = path.join(this.source, "pages");
+	this.scripts = path.join(this.source, "scripts");
+	this.styles = path.join(this.source, "styles");
 
-		this.entryPoint = path.join(this.scripts, "app.js");
-	}
+	this.entryPoint = path.join(this.scripts, "app.js");
 }
 
 var directories = new Directories();
 
 var webpackConfig = {
+	// https://webpack.js.org/configuration/mode/
 	mode: environment == "testing" ? "production" : environment,
+
+	// https://webpack.js.org/configuration/entry-context/#context
+	context: directories.source,
+
+	// https://webpack.js.org/configuration/entry-context/#entry
 	entry: directories.entryPoint,
 
+	// https://webpack.js.org/configuration/output/
 	output: {
+		// https://webpack.js.org/configuration/output/#outputpath
 		path: directories.output,
-		filename: "app.bundle.js",
+		// https://webpack.js.org/configuration/output/#outputfilename
+		filename: "[name].bundle.js",
 	},
 };
 
