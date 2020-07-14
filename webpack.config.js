@@ -43,6 +43,8 @@ function Directories() {
 
 var directories = new Directories();
 
+var HTMLwebpackPlugin = require("html-webpack-plugin");
+
 var webpackConfig = {
 	// https://webpack.js.org/configuration/mode/
 	mode: environment == "testing" ? "production" : environment,
@@ -67,8 +69,20 @@ var webpackConfig = {
 				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
 			},
+			{
+				test: /\.html$/,
+				use: ["html-loader"],
+			},
 		],
 	},
+
+	plugins: [
+		new HTMLwebpackPlugin({
+			// https://github.com/jantimon/html-webpack-plugin#options
+			filename: "index.html",
+			template: path.join(directories.source, "index.html"),
+		}),
+	],
 };
 
 module.exports = webpackConfig;
