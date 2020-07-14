@@ -60,6 +60,15 @@ var webpackConfig = {
 		// https://webpack.js.org/configuration/output/#outputfilename
 		filename: "[name].bundle.js",
 	},
+
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
+		],
+	},
 };
 
 module.exports = webpackConfig;
