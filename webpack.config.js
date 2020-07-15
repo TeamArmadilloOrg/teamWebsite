@@ -135,6 +135,18 @@ var webpackConfig = {
 			template: path.join(directories.source, "index.html"),
 		}),
 	],
+
+	// https://webpack.js.org/configuration/dev-server/#devserver
+	devServer: {
+		// https://webpack.js.org/configuration/dev-server/#devservercontentbase
+		contentBase: directories.output,
+		// https://webpack.js.org/configuration/dev-server/#devserverindex
+		index: "index.html",
+		// https://webpack.js.org/configuration/dev-server/#devserverlivereload
+		liveReload: true,
+		// https://webpack.js.org/configuration/dev-server/#devserverwatchcontentbase
+		watchContentBase: true,
+	},
 };
 
 module.exports = webpackConfig;
