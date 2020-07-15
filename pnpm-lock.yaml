@@ -2,6 +2,7 @@ devDependencies:
   '@babel/core': 7.10.5
   '@babel/preset-env': 7.10.4_@babel+core@7.10.5
   babel-loader: 8.1.0_13c776b87d2822e76e5e552d0872621e
+  clean-webpack-plugin: 3.0.0_webpack@4.43.0
   css-loader: 3.6.0_webpack@4.43.0
   eslint: 7.4.0
   file-loader: 6.0.0_webpack@4.43.0
@@ -1739,6 +1740,18 @@ packages:
       node: '>= 4.0'
     resolution:
       integrity: sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==
+  /clean-webpack-plugin/3.0.0_webpack@4.43.0:
+    dependencies:
+      '@types/webpack': 4.41.21
+      del: 4.1.1
+      webpack: 4.43.0_webpack@4.43.0
+    dev: true
+    engines:
+      node: '>=8.9.0'
+    peerDependencies:
+      webpack: '*'
+    resolution:
+      integrity: sha512-MciirUH5r+cYLGCOL5JX/ZLzOZbVr1ot3Fw+KcvbhUb6PM+yycqd9ZhIlcigQ5gl+XhppNmw3bEFuaaMNyLj3A==
   /cliui/5.0.0:
     dependencies:
       string-width: 3.1.0
@@ -6096,6 +6109,7 @@ specifiers:
   '@babel/core': ^7.10.5
   '@babel/preset-env': ^7.10.4
   babel-loader: ^8.1.0
+  clean-webpack-plugin: ^3.0.0
   css-loader: ^3.6.0
   eslint: ^7.4.0
   file-loader: ^6.0.0

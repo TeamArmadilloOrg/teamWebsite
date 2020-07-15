@@ -42,10 +42,9 @@ var directories = new (function Directories() {
 	this.entryPoint = path.join(this.scripts, "app.js");
 })();
 
-// webpack plugins
+var { CleanWebpackPlugin } = require("clean-webpack-plugin");
 var HTMLwebpackPlugin = require("html-webpack-plugin");
 
-// webpack config
 var webpackConfig = {
 	// https://webpack.js.org/configuration/mode/
 	mode: environment == "testing" ? "production" : environment,
@@ -129,6 +128,10 @@ var webpackConfig = {
 	},
 
 	plugins: [
+		new CleanWebpackPlugin({
+			// https://github.com/johnagan/clean-webpack-plugin#options-and-defaults-optional
+		}),
+
 		new HTMLwebpackPlugin({
 			// https://github.com/jantimon/html-webpack-plugin#options
 			filename: "index.html",
