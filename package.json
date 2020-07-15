@@ -12,6 +12,7 @@
 		"babel-loader": "^8.1.0",
 		"css-loader": "^3.6.0",
 		"eslint": "^7.4.0",
+		"file-loader": "^6.0.0",
 		"html-loader": "^1.1.0",
 		"html-webpack-plugin": "^4.3.0",
 		"prettier": "^2.0.5",

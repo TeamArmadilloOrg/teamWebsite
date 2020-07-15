@@ -4,6 +4,7 @@ devDependencies:
   babel-loader: 8.1.0_13c776b87d2822e76e5e552d0872621e
   css-loader: 3.6.0_webpack@4.43.0
   eslint: 7.4.0
+  file-loader: 6.0.0_webpack@4.43.0
   html-loader: 1.1.0_webpack@4.43.0
   html-webpack-plugin: 4.3.0_webpack@4.43.0
   prettier: 2.0.5
@@ -2373,6 +2374,18 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
+  /file-loader/6.0.0_webpack@4.43.0:
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 2.7.0
+      webpack: 4.43.0_webpack@4.43.0
+    dev: true
+    engines:
+      node: '>= 10.13.0'
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    resolution:
+      integrity: sha512-/aMOAYEFXDdjG0wytpTL5YQLfZnnTmLNjn+AIrJ/6HVnTfDqLsVKUUwkDf4I4kgex36BvjuXEn/TX9B/1ESyqQ==
   /file-uri-to-path/1.0.0:
     dev: true
     optional: true
@@ -5018,6 +5031,7 @@ specifiers:
   babel-loader: ^8.1.0
   css-loader: ^3.6.0
   eslint: ^7.4.0
+  file-loader: ^6.0.0
   html-loader: ^1.1.0
   html-webpack-plugin: ^4.3.0
   prettier: ^2.0.5

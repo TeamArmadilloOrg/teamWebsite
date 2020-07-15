@@ -71,6 +71,8 @@ var webpackConfig = {
 			{
 				// https://webpack.js.org/configuration/module/#ruletest
 				test: /\.html$/,
+				// https://webpack.js.org/configuration/module/#ruleexclude
+				exclude: /node_modules/,
 				// https://webpack.js.org/configuration/module/#ruleuse
 				use: [
 					{
@@ -85,6 +87,7 @@ var webpackConfig = {
 			},
 			{
 				test: /\.css$/,
+				exclude: /node_modules/,
 				use: [
 					{
 						loader: "style-loader",
@@ -100,11 +103,25 @@ var webpackConfig = {
 			},
 			{
 				test: /\.js$/,
+				exclude: /node_modules/,
 				use: [
 					{
 						loader: "babel-loader",
 						// https://webpack.js.org/loaders/babel-loader/#options
 						// options: {}.
+					},
+				],
+			},
+			{
+				test: /\.(png|jpe?g)$/i,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: "file-loader",
+						// https://webpack.js.org/loaders/file-loader/#options
+						options: {
+							name: "[path][name].[ext]",
+						},
 					},
 				],
 			},
