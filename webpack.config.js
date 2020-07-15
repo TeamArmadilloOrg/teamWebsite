@@ -1,6 +1,7 @@
 var yargs = require("yargs");
 var path = require("path");
 
+// yargs config
 yargs
 	.option("environment", {
 		alias: "env",
@@ -21,9 +22,9 @@ yargs
 // an argument after --environment or --env
 const environment = yargs.argv.environment;
 
-// a function to return an object with paths
-// to all of the directories inside the folder
-function Directories() {
+// a self-invoked function to return a new object with absolute paths
+// to all of the directories inside the project's folder
+var directories = new (function Directories() {
 	this.build = path.join(__dirname, "build");
 	this.output = path.join(
 		this.build,
@@ -39,12 +40,12 @@ function Directories() {
 	this.styles = path.join(this.source, "styles");
 
 	this.entryPoint = path.join(this.scripts, "app.js");
-}
+})();
 
-var directories = new Directories();
-
+// webpack plugins
 var HTMLwebpackPlugin = require("html-webpack-plugin");
 
+// webpack config
 var webpackConfig = {
 	// https://webpack.js.org/configuration/mode/
 	mode: environment == "testing" ? "production" : environment,
@@ -63,22 +64,49 @@ var webpackConfig = {
 		filename: "[name].bundle.js",
 	},
 
+	// https://webpack.js.org/configuration/module/
 	module: {
+		// https://webpack.js.org/configuration/module/#nested-rules
 		rules: [
 			{
-				// https://webpack.js.org/loaders/html-loader/
+				// https://webpack.js.org/configuration/module/#ruletest
 				test: /\.html$/,
-				use: ["html-loader"],
+				// https://webpack.js.org/configuration/module/#ruleuse
+				use: [
+					{
+						loader: "html-loader",
+						// https://webpack.js.org/loaders/html-loader/#options
+						options: {
+							attributes: true,
+							minimize: environment != "development",
+						},
+					},
+				],
 			},
 			{
-				// https://webpack.js.org/loaders/css-loader/
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: [
+					{
+						loader: "style-loader",
+						// https://webpack.js.org/loaders/style-loader/#options
+						// options: {},
+					},
+					{
+						loader: "css-loader",
+						// https://webpack.js.org/loaders/css-loader/#options
+						// options: {},
+					},
+				],
 			},
 			{
-				// https://webpack.js.org/loaders/babel-loader/
 				test: /\.js$/,
-				use: ["babel-loader"],
+				use: [
+					{
+						loader: "babel-loader",
+						// https://webpack.js.org/loaders/babel-loader/#options
+						// options: {}.
+					},
+				],
 			},
 		],
 	},
