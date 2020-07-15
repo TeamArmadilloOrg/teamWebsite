@@ -1,4 +1,6 @@
 # Reference for the CODEOWNERS file
 # https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners#about-code-owners
 
-*       @lax0248917 @Annerle @brndndev @mariushilleke @ojolanre @sarahdialmeida @xeho91
+# The below codeowners are designated as Product Owner and Lead Developers. All pull requests must be approved by the Product Owner and at least one Lead Developer to be eligible for merge into the desiganted branch.
+
+*       @lax0248917 @mariushilleke @xeho91
