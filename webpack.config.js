@@ -66,12 +66,19 @@ var webpackConfig = {
 	module: {
 		rules: [
 			{
+				// https://webpack.js.org/loaders/html-loader/
+				test: /\.html$/,
+				use: ["html-loader"],
+			},
+			{
+				// https://webpack.js.org/loaders/css-loader/
 				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
 			},
 			{
-				test: /\.html$/,
-				use: ["html-loader"],
+				// https://webpack.js.org/loaders/babel-loader/
+				test: /\.js$/,
+				use: ["babel-loader"],
 			},
 		],
 	},

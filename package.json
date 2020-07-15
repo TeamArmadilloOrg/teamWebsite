@@ -7,6 +7,9 @@
 		"build:production": ""
 	},
 	"devDependencies": {
+		"@babel/core": "^7.10.5",
+		"@babel/preset-env": "^7.10.4",
+		"babel-loader": "^8.1.0",
 		"css-loader": "^3.6.0",
 		"eslint": "^7.4.0",
 		"html-loader": "^1.1.0",
