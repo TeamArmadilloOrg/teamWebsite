@@ -1,4 +1,5 @@
 var yargs = require("yargs");
+var chalk = require("chalk");
 var path = require("path");
 var fs = require("fs");
 
@@ -12,8 +13,9 @@ yargs
 		demandOption: "Please specify the environment to which you want to build the project from source directory!"
 	})
 	.example(
-		"pnpm build development",
-		'Build project from the source directory in "development" environment'
+		`pnpm build ${chalk.green("development")}`,
+		// prettier-ignore
+		`Build project from the source directory in ${chalk.green('"development"')} environment`
 	)
 	.version(false)
 	.help().argv;
@@ -21,6 +23,14 @@ yargs
 // Determine the environment set based on the flag passed to command,
 // an argument after --environment or --env
 const environment = yargs.argv.environment;
+
+if (environment == "production") {
+	// prettier-ignore
+	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue("The configuration for production environment is not ready yet.")}`;
+} else if (environment == "testing") {
+	// prettier-ignore
+	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue("The configuration for testing environment is not ready yet.")}`;
+}
 
 // webpack plugins
 var { CleanWebpackPlugin } = require("clean-webpack-plugin");
