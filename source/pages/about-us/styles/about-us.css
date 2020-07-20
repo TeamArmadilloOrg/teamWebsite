@@ -1,14 +1,3 @@
-* {
-	box-sizing: border-box;
-	margin: 0px;
-	padding: 0px;
-	background-color: white;
-}
-
-body {
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
 h1 {
 	text-align: center;
 }
@@ -22,7 +11,7 @@ h1 {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
-	max-width: 20%;
+	max-width: 30%;
 	border-radius: 10px;
 	margin: 30px;
 	background-color: rgb(243, 190, 122);
