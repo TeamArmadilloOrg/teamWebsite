@@ -54,6 +54,19 @@ var directories = new (function Directories() {
 	this.templates = path.join(this.source, "templates");
 })();
 
+var sharedHTMLwebpackPluginOptions = {
+	// https://github.com/jantimon/html-webpack-plugin#options
+	inject: "head",
+	meta: {
+		viewport: "width=device-width, initial-scale=1",
+	},
+};
+var pageTitles = {
+	"about-us": "About Us",
+	"contact-us": "Contact Us",
+	projects: "Projects",
+};
+
 var webpackConfig = {
 	// https://webpack.js.org/configuration/mode/
 	mode: environment == "testing" ? "production" : environment,
@@ -69,10 +82,12 @@ var webpackConfig = {
 
 	// https://webpack.js.org/configuration/output/
 	output: {
-		// https://webpack.js.org/configuration/output/#outputpath
-		path: directories.output,
 		// https://webpack.js.org/configuration/output/#outputfilename
 		filename: "assets/scripts/[name].bundle.js",
+		// https://webpack.js.org/configuration/output/#outputpath
+		path: directories.output,
+		// https://webpack.js.org/configuration/output/#outputpublicpath
+		publicPath: "",
 	},
 
 	// https://webpack.js.org/configuration/resolve/
@@ -91,7 +106,8 @@ var webpackConfig = {
 				// https://webpack.js.org/configuration/module/#ruletest
 				test: /\.html$/,
 				// https://webpack.js.org/configuration/module/#ruleexclude
-				exclude: /node_modules/,
+				exclude: [/node_modules/, /index/],
+				include: directories.templates,
 				// https://webpack.js.org/configuration/module/#ruleuse
 				use: [
 					{
@@ -107,6 +123,7 @@ var webpackConfig = {
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
+				include: directories.styles,
 				use: [
 					{
 						loader: "style-loader",
@@ -123,6 +140,7 @@ var webpackConfig = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
+				include: directories.scripts,
 				use: [
 					{
 						loader: "babel-loader",
@@ -132,14 +150,15 @@ var webpackConfig = {
 				],
 			},
 			{
-				test: /\.(png|jpe?g)$/i,
+				test: /\.(png|jpe?g|gif|ico)$/i,
 				exclude: /node_modules/,
 				use: [
 					{
 						loader: "file-loader",
 						// https://webpack.js.org/loaders/file-loader/#options
 						options: {
-							name: "assets/[path][name].[ext]",
+							name: "[path][name].[ext]",
+							outputPath: "assets/",
 						},
 					},
 				],
@@ -154,10 +173,11 @@ var webpackConfig = {
 
 		new HTMLwebpackPlugin({
 			// https://github.com/jantimon/html-webpack-plugin#options
+			title: "Armadillo",
 			filename: "index.html",
-			template: path.join(directories.templates, "index.html"),
 			chunks: ["index"],
-			inject: "head",
+			template: path.join(directories.templates, "index.html"),
+			...sharedHTMLwebpackPluginOptions,
 		}),
 
 		...generatePagesTemplatesWithHTMLwebpackPlugin(),
@@ -198,16 +218,15 @@ function getPagesEntryPoints() {
 
 function generatePagesTemplatesWithHTMLwebpackPlugin() {
 	function generatePageTemplate(templateFilename) {
+		const pageName = path.basename(templateFilename, ".html");
+
 		return new HTMLwebpackPlugin({
 			// https://github.com/jantimon/html-webpack-plugin#options
+			title: pageTitles[pageName],
 			filename: templateFilename,
-			template: path.join(
-				directories.templates,
-				"pages",
-				templateFilename
-			),
-			chunks: ["index", path.basename(templateFilename, ".html")],
-			inject: "head",
+			chunks: ["index", pageName],
+			template: path.join(directories.templates, "index.html"),
+			...sharedHTMLwebpackPluginOptions,
 		});
 	}
 
