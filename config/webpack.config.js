@@ -39,13 +39,16 @@ var HTMLwebpackPlugin = require("html-webpack-plugin");
 // a self-invoked function to return a new object with absolute paths
 // to all of the directories inside the project's folder
 var directories = new (function Directories() {
-	this.build = path.join(__dirname, "build");
+	this.root = path.join(__dirname, "..");
+	this.config = path.join(this.root, "config");
+
+	this.build = path.join(this.root, "build");
 	this.output = path.join(
 		this.build,
 		environment == "production" ? "public" : environment
 	);
 
-	this.source = path.join(__dirname, "source");
+	this.source = path.join(this.root, "source");
 	this.brand = path.join(this.source, "brand");
 	this.data = path.join(this.source, "data");
 	this.images = path.join(this.source, "images");
@@ -107,6 +110,7 @@ var webpackConfig = {
 				test: /\.html$/,
 				// https://webpack.js.org/configuration/module/#ruleexclude
 				exclude: [/node_modules/, /index/],
+				// https://webpack.js.org/configuration/module/#ruleinclude
 				include: directories.templates,
 				// https://webpack.js.org/configuration/module/#ruleuse
 				use: [
@@ -145,7 +149,12 @@ var webpackConfig = {
 					{
 						loader: "babel-loader",
 						// https://webpack.js.org/loaders/babel-loader/#options
-						// options: {}.
+						options: {
+							extends: path.join(
+								directories.config,
+								".babelrc.js"
+							),
+						},
 					},
 				],
 			},

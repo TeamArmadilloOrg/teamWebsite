@@ -1,8 +1,16 @@
 {
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TeamArmadilloOrg/teamWebsite.git"
+	},
+	"bugs": "https://github.com/TeamArmadilloOrg/teamWebsite/issues",
 	"scripts": {
-		"start:dev": "webpack-dev-server --environment development",
-		"check": "prettier --check './source/'",
-		"build": "webpack --env"
+		"start:dev": "webpack-dev-server --config './config/webpack.config.js' --environment development",
+		"check": "prettier --config './config/.prettierrc.js' --check './source/'",
+		"lint:js": "eslint --config './config/.eslintrc.js' --ext js",
+		"build": "webpack --config './config/webpack.config.js' --environment",
+		"build:dev": "webpack --config './config/webpack.config.js' --env development"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.5",
