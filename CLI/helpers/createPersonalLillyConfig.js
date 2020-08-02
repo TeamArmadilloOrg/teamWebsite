@@ -81,7 +81,7 @@ async function createPersonalLillyConfig() {
 			name: emoji.split(" ")[1],
 		},
 	};
-	let personalConfigPath = path.resolve("config", "lilly.config.json");
+	let personalConfigPath = path.resolve("config", "CLI", "lilly.config.json");
 
 	fs.writeFileSync(
 		personalConfigPath,
