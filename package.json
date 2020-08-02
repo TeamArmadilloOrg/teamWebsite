@@ -1,18 +1,31 @@
 {
+	"name": "team-armadillo-website",
+	"bin": {
+		"lilly": "./binary/lilly",
+		"Lilly": "./binary/lilly"
+	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/TeamArmadilloOrg/teamWebsite.git"
 	},
 	"bugs": "https://github.com/TeamArmadilloOrg/teamWebsite/issues",
+	"engines": {
+		"node": "^12.18.3",
+		"pnpm": "^5.4.9",
+		"vscode": "^1.47.3"
+	},
 	"scripts": {
-		"start:dev": "webpack-dev-server --config './config/webpack.config.js' --environment development",
-		"check": "prettier --config './config/.prettierrc.js' --check './source/'",
-		"lint:js": "eslint --config './config/.eslintrc.js' --ext js",
-		"build": "webpack --config './config/webpack.config.js' --environment",
-		"build:dev": "webpack --config './config/webpack.config.js' --env development"
+		"start": "lilly",
+		"start:CLI": "webpack --config './config/CLI/webpack.config.js' --environment development --watch",
+		"build:CLI": "webpack --config './config/CLI/webpack.config.js' --environment",
+		"start:website": "webpack-dev-server --config './config/website/webpack.config.js' --environment development",
+		"build:website": "webpack --config './config/website/webpack.config.js' --environment",
+		"check:all": "prettier --config './config/.prettierrc.js' --check './'",
+		"lint:js": "eslint --config './config/.eslintrc.js' --ext js"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.10.5",
 		"@babel/core": "^7.10.5",
 		"@babel/preset-env": "^7.10.4",
 		"babel-loader": "^8.1.0",
@@ -23,11 +36,14 @@
 		"file-loader": "^6.0.0",
 		"html-loader": "^1.1.0",
 		"html-webpack-plugin": "^4.3.0",
+		"inquirer": "^7.3.2",
+		"nodegit": "^0.26.5",
 		"prettier": "^2.0.5",
 		"style-loader": "^1.2.1",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0",
+		"webpack-node-externals": "^2.5.0",
 		"yargs": "^15.4.1"
 	}
 }
