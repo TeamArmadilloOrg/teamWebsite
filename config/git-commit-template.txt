@@ -1,0 +1,14 @@
+# A header, should be maximum 50 characters.
+# Including your emoji, Jira issue id.
+# Remember!
+# Your emoji will be counted as ONE character.
+# -------------------- HEADER -------------------|
+:your_emoji:[JIRA-ISSUE-ID] <Insert your short commit message here...>
+# ---------------- END OF HEADER ----------------|
+
+
+# A lengthy description where you can explain the changes and make sure
+# you wrap the body at 72 characters.
+# ----------------------- LENGTHY DESCRIPTION -------------------------|
+<Insert your lengthy description...>
+# -------------------- END OF LENGTHY DESCRIPTION ---------------------|

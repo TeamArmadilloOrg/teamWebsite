@@ -10,8 +10,22 @@ module.exports = {
 		sourceType: "module",
 	},
 	rules: {
-		indent: ["warn", "tab"],
-		"max-len": ["error", { code: 100, tabWidth: 4, ignoreStrings: true }],
+		indent: [
+			"warn",
+			"tab",
+			{
+				SwitchCase: 1,
+			},
+		],
+		"max-len": [
+			"error",
+			{
+				code: 100,
+				tabWidth: 4,
+				ignoreStrings: true,
+				ignoreTemplateLiterals: true,
+			},
+		],
 		"linebreak-style": ["error", "unix"],
 		quotes: ["warn", "double", { avoidEscape: true }],
 		semi: ["error", "always"],

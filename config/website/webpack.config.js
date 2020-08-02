@@ -9,13 +9,14 @@ yargs
 		alias: "env",
 		describe: "Specify the environment for build",
 		choices: ["development", "testing", "production"],
-		// prettier-ignore
-		demandOption: "Please specify the environment to which you want to build the project from source directory!"
+		demandOption:
+			"Please specify the environment to which you want to build the project from source directory!",
 	})
 	.example(
-		`pnpm build ${chalk.green("development")}`,
-		// prettier-ignore
-		`Build project from the source directory in ${chalk.green('"development"')} environment`
+		`pnpm build:website ${chalk.green("development")}`,
+		`Build the website project from the source directory in ${chalk.green(
+			'"development"'
+		)} environment`
 	)
 	.version(false)
 	.help().argv;
@@ -25,11 +26,13 @@ yargs
 const environment = yargs.argv.environment;
 
 if (environment == "production") {
-	// prettier-ignore
-	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue("The configuration for production environment is not ready yet.")}`;
+	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue(
+		"The configuration for production environment is not ready yet."
+	)}`;
 } else if (environment == "testing") {
-	// prettier-ignore
-	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue("The configuration for testing environment is not ready yet.")}`;
+	throw `${chalk.bgBlue(" INFO ")} ${chalk.blue(
+		"The configuration for testing environment is not ready yet."
+	)}`;
 }
 
 // webpack plugins
@@ -38,8 +41,8 @@ var HTMLwebpackPlugin = require("html-webpack-plugin");
 
 // a self-invoked function to return a new object with absolute paths
 // to all of the directories inside the project's folder
-var directories = new (function Directories() {
-	this.root = path.join(__dirname, "..");
+var directories = new (function getWebsiteDirectoriesPaths() {
+	this.root = path.join(__dirname, "..", "..");
 	this.config = path.join(this.root, "config");
 
 	this.build = path.join(this.root, "build");
@@ -152,6 +155,7 @@ var webpackConfig = {
 						options: {
 							extends: path.join(
 								directories.config,
+								"website",
 								".babelrc.js"
 							),
 						},
