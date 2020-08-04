@@ -1,4 +1,6 @@
 {
+    "editor.detectIndentation": true,
+    "editor.tabSize": 4,
     // Prettier
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.configPath": "./config/.prettierrc.js",

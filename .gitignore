@@ -1,2 +1,4 @@
 /node_modules
 /build
+/binary
+/config/CLI/lilly.config.json
