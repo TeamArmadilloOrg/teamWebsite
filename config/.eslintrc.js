@@ -1,4 +1,15 @@
 module.exports = {
+	globals: {
+		personalLillyConfig: "readonly",
+		ErrorPrompt: "writable",
+		WarningPrompt: "writable",
+		SuccessPrompt: "writable",
+		InfoPrompt: "writable",
+		NotePrompt: "writable",
+		LillyPrompt: "writable",
+		UserPrompt: "writable",
+	},
+
 	env: {
 		browser: true,
 		es2020: true,
