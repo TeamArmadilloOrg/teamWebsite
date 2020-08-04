@@ -22,6 +22,8 @@ function loadPersonalLillyConfig() {
 	}
 }
 
+yargs.version("0.1.0").alias("v", "version");
+
 (async function init() {
 	global.personalLillyConfig = await loadPersonalLillyConfig();
 	UserPrompt.name = personalLillyConfig.name;
