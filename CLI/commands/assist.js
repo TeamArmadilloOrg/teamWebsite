@@ -1,26 +1,24 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
-import lillyPrompt from "@/CLI/helpers/lillyPrompt.js";
-import userPrompt from "@/CLI/helpers/userPrompt.js";
 import { scripts } from "@/package.json";
 import runScript from "@/CLI/commands/runScript.js";
-import branch from "@/CLI/commands/git-flow/branch.js";
-import commit from "@/CLI/commands/git-flow/commit.js";
+import runBranchTask from "@/CLI/commands/git-flow/branch.js";
+import runCommitTask from "@/CLI/commands/git-flow/commit.js";
 
-async function assist(personalLillyConfig) {
+async function assist() {
 	let questions = [
 		{
 			name: "task",
 			message: `How I can ${chalk.cyan("assist")} you?`,
-			prefix: lillyPrompt(),
-			suffix: `\n${userPrompt()}`,
+			prefix: LillyPrompt.prefix,
+			suffix: `\n${UserPrompt.prefix}`,
 			type: "list",
 			pageSize: 15,
 			choices: [
 				new inquirer.Separator("-- Git flow --"),
 				{
-					name: `Create a new ${chalk.blue("branch")}`,
+					name: `Create a new ${chalk.blue("branch")}...`,
 					value: "git:branch",
 				},
 				{
@@ -87,9 +85,9 @@ async function assist(personalLillyConfig) {
 	if (Object.keys(scripts).includes(command)) {
 		runScript(command, argumentsPassedToCommand);
 	} else if (task == "git:branch") {
-		await branch(personalLillyConfig);
+		await runBranchTask();
 	} else if (task == "git:commit") {
-		await commit(personalLillyConfig);
+		await runCommitTask();
 	}
 }
 

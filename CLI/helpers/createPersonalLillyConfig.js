@@ -2,19 +2,15 @@ import chalk from "chalk";
 import inquirer from "inquirer";
 import path from "path";
 import fs from "fs";
-
-import lillyPrompt from "./lillyPrompt.js";
-import userPrompt from "./userPrompt.js";
+import emoji from "node-emoji";
 
 async function createPersonalLillyConfig() {
-	console.log(
-		lillyPrompt([
-			"Hello there!",
-			`I am ${chalk.gray(
-				"Lilly"
-			)} - a personal assistant for Team Armadillo projects.`,
-		])
-	);
+	LillyPrompt.log([
+		"Hello there!",
+		`I am ${chalk.gray(
+			"Lilly"
+		)} - a personal assistant for Team Armadillo projects.`,
+	]);
 
 	function verifyTeamMemberName(inputName) {
 		let teamMembers = [
@@ -38,23 +34,23 @@ async function createPersonalLillyConfig() {
 
 	let questionsAboutUser = [
 		{
-			name: "name",
+			name: "userName",
 			type: "input",
-			prefix: lillyPrompt(),
+			prefix: LillyPrompt.prefix,
 			message: `Can you please remind me what's your ${chalk.cyan(
 				"name"
 			)} again?`,
-			suffix: `\n${userPrompt()}`,
+			suffix: `\n${UserPrompt.prefix}`,
 			validate: verifyTeamMemberName,
 		},
 		{
-			name: "emoji",
+			name: "userEmoji",
 			type: "list",
-			prefix: lillyPrompt(),
+			prefix: LillyPrompt.prefix,
 			message: `Please remind me which one of these was your ${chalk.cyan(
 				"emoji"
 			)}?`,
-			suffix: `\n${userPrompt()}`,
+			suffix: `\n${UserPrompt.prefix}`,
 			choices: [
 				"🌅 sunrise",
 				"🚀 rocket",
@@ -66,20 +62,17 @@ async function createPersonalLillyConfig() {
 			],
 		},
 	];
-	const { name, emoji } = await inquirer.prompt(questionsAboutUser);
+	const { userName, userEmoji } = await inquirer.prompt(questionsAboutUser);
 
 	function formatName() {
-		const newName = name.toLowerCase();
+		const newName = userName.toLowerCase();
 
 		return newName.charAt(0).toUpperCase() + newName.slice(1);
 	}
 
 	let personalConfig = {
 		name: formatName(),
-		emoji: {
-			icon: emoji.split(" ")[0],
-			name: emoji.split(" ")[1],
-		},
+		emoji: emoji.get(userEmoji.split(" ")[1]),
 	};
 	let personalConfigPath = path.resolve("config", "CLI", "lilly.config.json");
 
@@ -87,12 +80,10 @@ async function createPersonalLillyConfig() {
 		personalConfigPath,
 		JSON.stringify(personalConfig, null, 2)
 	);
-	console.log(
-		lillyPrompt(
-			`From now, I will remember you by saving data about you to: ${chalk.green(
-				personalConfigPath
-			)}`
-		)
+	LillyPrompt.log(
+		`From now, I will remember you by saving data about you to: ${chalk.green(
+			personalConfigPath
+		)}`
 	);
 
 	return personalConfig;

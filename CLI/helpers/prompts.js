@@ -212,7 +212,7 @@ global.UserPrompt = new Prompt({
 		textFormat: "capitalize",
 	},
 	textStyles: {
-		color: "white",
+		color: "cyan",
 	},
 	logFormat: "prefixed",
 });

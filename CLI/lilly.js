@@ -3,11 +3,12 @@ import fs from "fs";
 import chalk from "chalk";
 import yargs from "yargs";
 
+import "@/CLI/helpers/prompts.js";
+
 import createPersonalLillyConfig from "@/CLI/helpers/createPersonalLillyConfig.js";
-import lillyPrompt from "@/CLI/helpers/lillyPrompt.js";
 import assist from "@/CLI/commands/assist.js";
 
-function getPersonalLillyConfig() {
+function loadPersonalLillyConfig() {
 	const personalLillyConfigPath = path.resolve(
 		"config",
 		"CLI",
@@ -22,17 +23,16 @@ function getPersonalLillyConfig() {
 }
 
 (async function init() {
-	let personalLillyConfig = await getPersonalLillyConfig();
-
-	console.log(
-		lillyPrompt([
-			`Hello ${chalk.blueBright(personalLillyConfig.name)} ${
-				personalLillyConfig.emoji.icon
-			}, good to see you again!`,
-		])
-	);
+	global.personalLillyConfig = await loadPersonalLillyConfig();
+	UserPrompt.name = personalLillyConfig.name;
+	UserPrompt.emoji = personalLillyConfig.emoji;
 
 	if (yargs.argv._.length == 0) {
+		LillyPrompt.log([
+			`Hello ${personalLillyConfig.emoji} ${chalk.cyanBright(
+				personalLillyConfig.name
+			)}, good to see you again!`,
+		]);
 		assist(personalLillyConfig);
 	}
 })();
