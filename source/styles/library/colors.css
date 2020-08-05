@@ -1,0 +1,21 @@
+:root {
+	/* white */
+	--white-hue: 0deg;
+	--white-saturation: 14%;
+	--white-lightness: 93%;
+	--white-alpha: 100%;
+	--color-white-hsl: var(--white-hue), var(--white-saturation),
+		var(--white-lightness);
+	--color-white-hsla: var(--color-white-hsl), var(--white-alpha);
+	/* black */
+	--black-hue: 0deg;
+	--black-saturation: 25%;
+	--black-lightness: 10%;
+	--black-alpha: 100%;
+	--color-black-hsl: var(--black-hue), var(--black-saturation),
+		var(--black-lightness);
+	--color-black-hsla: var(--color-black-hsl), var(--black-alpha);
+
+	--color-primary: hsla(var(--color-black-hsla));
+	--color-secondary: hsla(var(--color-white-hsla));
+}
