@@ -1,3 +1,3 @@
 import "@/styles/index.css";
 
-import "@/scripts/components/navbar.js";
+import "@/scripts/pages/home-page.js";
