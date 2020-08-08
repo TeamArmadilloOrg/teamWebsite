@@ -1,5 +1,9 @@
 import "@/styles/pages/home-page.css";
-import "@/brand/favicon/favicon.ico";
+import faviconPath from "@/brand/favicon/favicon.ico";
+
+window.addEvenListener("DOMContentLoaded", function() {
+     document.querySelector("#logo img").setAttribute("src", faviconPath);
+});
 
 import template from "@/templates/pages/home-page.html";
 
