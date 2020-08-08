@@ -1,21 +1,19 @@
 {
-    "editor.detectIndentation": true,
-    "editor.tabSize": 4,
-    // Prettier
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.configPath": "./config/.prettierrc.js",
-    "prettier.useEditorConfig": true,
-    "prettier.withNodeModules": false,
-    // ESlint
-    "eslint.enable": true,
-    "eslint.run": "onType",
-    "eslint.probe": [
-        "javascript"
-    ],
-    "eslint.options": {
-        "configFile": "./config/.eslintrc.js",
-    },
-    "eslint.codeAction.showDocumentation": {
-        "enable": true
-    },
+	"editor.detectIndentation": true,
+	"editor.tabSize": 4,
+	// Prettier
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.configPath": "./config/.prettierrc.js",
+	"prettier.useEditorConfig": true,
+	"prettier.withNodeModules": false,
+	// ESlint
+	"eslint.enable": true,
+	"eslint.run": "onType",
+	"eslint.probe": ["javascript"],
+	"eslint.options": {
+		"configFile": "./config/.eslintrc.js"
+	},
+	"eslint.codeAction.showDocumentation": {
+		"enable": true
+	}
 }
