@@ -1,0 +1,15 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #e7e9bb;
+}
+
+li {
+	display: inline;
+}
+
+img {
+	max-width: 50px;
+	max-height: 50px;
+}
