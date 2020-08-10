@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+/* Import library files */
+@import "library/colors.css";
+@import "library/fonts.css";
+
 /* Basic styling */
 * {
 	box-sizing: border-box;
@@ -5,6 +11,7 @@
 	margin: 0;
 }
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--color-primary);
+	font-family: var(--font-sans-serif);
 	font-size: 16px;
 }
