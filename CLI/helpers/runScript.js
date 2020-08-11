@@ -17,6 +17,7 @@ async function runScript(command, argumentsPassedToCommand) {
 		[command, argumentsPassedToCommand ? argumentsPassedToCommand : ""],
 		{
 			stdio: "inherit",
+			shell: true,
 		}
 	);
 }

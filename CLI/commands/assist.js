@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 
 import { scripts } from "@/package.json";
-import runScript from "@/CLI/commands/runScript.js";
+import runScript from "@/CLI/helpers/runScript.js";
 import runBranchTask from "@/CLI/commands/git-flow/branch.js";
 import runCommitTask from "@/CLI/commands/git-flow/commit.js";
 
