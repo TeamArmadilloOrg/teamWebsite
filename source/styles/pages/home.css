@@ -6,7 +6,7 @@
 	width: 100%;
 }
 
-.navbar a {
+.link {
 	float: left;
 	display: block;
 	color: #eeeeee;
@@ -23,4 +23,9 @@
 img {
 	max-width: 50px;
 	max-height: 50px;
+}
+
+#logo {
+	float: left;
+	display: block;
 }
