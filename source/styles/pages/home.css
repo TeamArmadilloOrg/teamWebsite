@@ -1,12 +1,23 @@
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	background-color: #e7e9bb;
+.navbar {
+	overflow: hidden;
+	background-color: #666666;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
-li {
-	display: inline;
+.navbar a {
+	float: left;
+	display: block;
+	color: #eeeeee;
+	text-align: center;
+	padding: 15px 18px;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.navbar a:hover {
+	color: #1c87c9;
 }
 
 img {
