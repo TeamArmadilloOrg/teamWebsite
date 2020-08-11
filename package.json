@@ -21,7 +21,7 @@
 		"build:CLI": "webpack --config './config/CLI/webpack.config.js' --environment",
 		"start:website": "webpack-dev-server --config './config/website/webpack.config.js' --environment development",
 		"build:website": "webpack --config './config/website/webpack.config.js' --environment",
-		"check:all": "prettier --config './config/.prettierrc.js' --check './'",
+		"check:all": "prettier --config './config/.prettierrc.js' --ignore-path './config/.prettierignore' --check './'",
 		"lint:js": "eslint --config './config/.eslintrc.js' --ext js"
 	},
 	"devDependencies": {
