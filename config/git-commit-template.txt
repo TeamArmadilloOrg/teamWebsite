@@ -8,7 +8,7 @@
 
 
 # A lengthy description where you can explain the changes and make sure
-# you wrap the body at 72 characters.
+# you wrap the body at 73 characters.
 # ----------------------- LENGTHY DESCRIPTION -------------------------|
 <Insert your lengthy description...>
 # -------------------- END OF LENGTHY DESCRIPTION ---------------------|

@@ -54,9 +54,9 @@ async function commit() {
 						allowedCommitLength - fullCommitMessageLength;
 					const counter = chalk.grey(
 						`(${
-							remainingCharactersLeft > 0
-								? remainingCharactersLeft
-								: 0
+						remainingCharactersLeft > 0
+							? remainingCharactersLeft
+							: 0
 						} remaining characters left)`
 					);
 
@@ -90,12 +90,6 @@ async function commit() {
 				questionAboutCommitMessage
 			);
 
-			gitCommitCommandArguments = [
-				"commit",
-				"-m",
-				`${appendEmojiAndJiraIssueTag(commitMessage)}`,
-			];
-
 			NotePrompt.log([
 				"If you would like to do this task without the help of Lilly,",
 				"you can use this command:",
@@ -105,12 +99,13 @@ async function commit() {
 					)}" `
 				)}`,
 			]);
-		} else if (length == "long") {
+
 			gitCommitCommandArguments = [
 				"commit",
-				"--template",
-				autoFilledTemplatePath,
+				"-m",
+				`${appendEmojiAndJiraIssueTag(commitMessage)}`,
 			];
+		} else if (length == "long") {
 			const commitTemplatePath = path.join(
 				"./",
 				"config",
@@ -121,8 +116,8 @@ async function commit() {
 				.toString();
 			const autoFilledCommitTemplate = commitTemplate
 				.replace("JIRA-ISSUE-ID", jiraIssueTag)
-				.replace(":your_emoji:", personalLillyConfig.emoji.icon);
-			const autoFilledTemplatePath = commitTemplatePath.replace(
+				.replace(":your_emoji:", personalLillyConfig.emoji);
+			const autoFilledCommitTemplatePath = commitTemplatePath.replace(
 				"git-commit-template",
 				"autoFilled-commit-template"
 			);
@@ -136,16 +131,15 @@ async function commit() {
 			]);
 
 			await fs.writeFileSync(
-				autoFilledTemplatePath,
+				autoFilledCommitTemplatePath,
 				autoFilledCommitTemplate
 			);
 
-			await callGitCommit.on(
-				"close",
-				function removeAutoFilledCommitTemplateFile() {
-					fs.unlinkSync(autoFilledTemplatePath);
-				}
-			);
+			gitCommitCommandArguments = [
+				"commit",
+				"--template",
+				autoFilledCommitTemplatePath,
+			];
 		}
 
 		let callGitCommand = spawn("git", gitCommitCommandArguments, {
@@ -153,6 +147,16 @@ async function commit() {
 		});
 
 		callGitCommand.on("exit", function runAfterExit() {
+			const autoFilledCommitTemplatePath = path.join(
+				"./",
+				"config",
+				"autoFilled-commit-template.txt"
+			);
+
+			if (fs.existsSync(autoFilledCommitTemplatePath)) {
+				fs.unlinkSync(autoFilledCommitTemplatePath);
+			}
+
 			LillyPrompt.log([
 				"Successfully created commit!",
 				"You can preview it below:",
