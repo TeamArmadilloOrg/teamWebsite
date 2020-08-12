@@ -1,9 +1,5 @@
 {
-	"name": "team-armadillo-website",
-	"bin": {
-		"lilly": "./binary/lilly",
-		"Lilly": "./binary/lilly"
-	},
+	"name": "team-website",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -16,11 +12,8 @@
 		"vscode": "^1.47.3"
 	},
 	"scripts": {
-		"start": "lilly",
-		"start:CLI": "webpack --config './config/CLI/webpack.config.js' --environment development --watch",
-		"build:CLI": "webpack --config './config/CLI/webpack.config.js' --environment",
-		"start:website": "webpack-dev-server --config './config/website/webpack.config.js' --environment development",
-		"build:website": "webpack --config './config/website/webpack.config.js' --environment",
+		"start:dev": "webpack-dev-server --config './config/webpack.config.js' --environment development",
+		"build": "webpack --config './config/webpack.config.js' --environment",
 		"check:all": "prettier --config './config/.prettierrc.js' --ignore-path './config/.prettierignore' --check './'",
 		"lint:js": "eslint --config './config/.eslintrc.js' --ext js"
 	},
@@ -36,16 +29,11 @@
 		"file-loader": "^6.0.0",
 		"html-loader": "^1.1.0",
 		"html-webpack-plugin": "^4.3.0",
-		"inquirer": "^7.3.2",
-		"node-emoji": "^1.10.0",
-		"nodegit": "^0.26.5",
 		"prettier": "^2.0.5",
-		"string-length": "^4.0.1",
 		"style-loader": "^1.2.1",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0",
-		"webpack-node-externals": "^2.5.0",
 		"yargs": "^15.4.1"
 	}
 }
