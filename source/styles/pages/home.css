@@ -20,12 +20,9 @@
 	color: #1c87c9;
 }
 
-img {
-	max-width: 50px;
-	max-height: 50px;
-}
-
 #logo {
 	float: left;
 	display: block;
+	max-width: 50px;
+	max-height: 50px;
 }
