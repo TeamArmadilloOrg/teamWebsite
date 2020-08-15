@@ -1,3 +1,5 @@
 #twitter img {
-    height: 40px;
+    height: 30px;
+    border-radius: 25%;
+    margin: 10px;
 }
