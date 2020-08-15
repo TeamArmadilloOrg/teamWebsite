@@ -41,8 +41,8 @@ var HTMLwebpackPlugin = require("html-webpack-plugin");
 
 // a self-invoked function to return a new object with absolute paths
 // to all of the directories inside the project's folder
-var directories = new (function getWebsiteDirectoriesPaths() {
-	this.root = path.join(__dirname, "..", "..");
+var directories = new (function getProjectDirectoriesPaths() {
+	this.root = path.join(__dirname, "..");
 	this.config = path.join(this.root, "config");
 
 	this.build = path.join(this.root, "build");
@@ -155,7 +155,6 @@ var webpackConfig = {
 						options: {
 							extends: path.join(
 								directories.config,
-								"website",
 								".babelrc.js"
 							),
 						},
