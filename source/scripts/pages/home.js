@@ -12,4 +12,5 @@ window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector(logoImageSelector).setAttribute("src", faviconPath);
 	document.querySelector(twitterIconImageSelector).setAttribute("src", twitterIconPath);
 	document.querySelector(twitterAnchorSelector).setAttribute("href", twitterAccountHRef);
+	document.querySelector("#logo").setAttribute("src", faviconPath);
 });
