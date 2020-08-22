@@ -15,7 +15,8 @@
 		"start:dev": "webpack-dev-server --config './config/webpack.config.js' --environment development",
 		"build": "webpack --config './config/webpack.config.js' --environment",
 		"check:all": "prettier --config './config/.prettierrc.js' --ignore-path './config/.prettierignore' --check './'",
-		"lint:js": "eslint --config './config/.eslintrc.js' --ext js"
+		"lint:js": "eslint --config './config/.eslintrc.js' --ext js",
+		"deploy": "gh-pages -d build"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",
@@ -35,5 +36,8 @@
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0",
 		"yargs": "^15.4.1"
+	},
+	"dependencies": {
+		"gh-pages": "^3.1.0"
 	}
 }
