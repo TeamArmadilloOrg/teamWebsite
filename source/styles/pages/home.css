@@ -1,11 +1,6 @@
-#twitter img {
-    height: 30px;
-    border-radius: 25%;
-    margin: 10px;
-}
 .navbar {
 	overflow: hidden;
-	background-color: #666666;
+	background-color: var(--color-darker);
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -14,7 +9,7 @@
 .link {
 	float: left;
 	display: block;
-	color: #eeeeee;
+	color: var(--color-secondary);
 	text-align: center;
 	padding: 15px 18px;
 	text-decoration: none;
@@ -22,12 +17,34 @@
 }
 
 .navbar a:hover {
-	color: #1c87c9;
+	color: var(--color-light);
 }
 
-#logo {
-	float: left;
-	display: block;
-	max-width: 50px;
-	max-height: 50px;
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--color-darker);
+	text-align: center;
+}
+
+footer p {
+	color: var(--color-secondary);
+}
+
+.fa {
+	padding: 5px;
+	font-size: 35px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.fa:hover {
+	opacity: 0.7;
+  }
+
+.fa-github, .fa-twitter {
+	background: none;
+	color: var(--color-secondary);
 }
