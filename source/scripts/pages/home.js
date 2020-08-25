@@ -4,13 +4,10 @@ import twitterIconPath from "@/brand/twitter_logo.png";
 import template from "@/templates/pages/home.html";
 
 window.addEventListener("DOMContentLoaded", function () {
-	const logoImageSelector = "#logo img";
-	const twitterIconImageSelector = "#twitter a img";
-	const twitterAnchorSelector = "#twitter a";
 	const twitterAccountHref = "https://twitter.com/lilly_armadillo";
 	document.body.insertAdjacentHTML("beforeend", template);
-	document.querySelector(logoImageSelector).setAttribute("src", faviconPath);
-	document.querySelector(twitterIconImageSelector).setAttribute("src", twitterIconPath);
-	document.querySelector(twitterAnchorSelector).setAttribute("href", twitterAccountHref);
+	document.querySelector("#logo img").setAttribute("src", faviconPath);
+	document.querySelector("#twitter a img").setAttribute("src", twitterIconPath);
+	document.querySelector("#twitter a").setAttribute("href", twitterAccountHref);
 	document.querySelector("#logo").setAttribute("src", faviconPath);
 });
