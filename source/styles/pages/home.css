@@ -1,6 +1,6 @@
 .navbar {
 	overflow: hidden;
-	background-color: var(--color-darker);
+	background-color: var(--color-secondary-superlight);
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -11,7 +11,7 @@
 .link {
 	float: left;
 	display: block;
-	color: var(--color-secondary);
+	color: var(--color-primary-dark);
 	text-align: center;
 	padding: 15px 18px;
 	text-decoration: none;
@@ -27,19 +27,19 @@
 }
 
 .navbar a:hover {
-	color: var(--color-light);
+	color: var(--color-primary-light);
 }
 
 footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background-color: var(--color-darker);
+	background-color: var(--color-secondary-superlight);
 	text-align: center;
 }
 
 footer p {
-	color: var(--color-secondary);
+	color: var(--color-primary-light);
 }
 
 .fa {
@@ -51,10 +51,10 @@ footer p {
 }
 
 .fa:hover {
-	opacity: 0.7;
+	color: var(--color-primary-darker);
   }
 
 .fa-github, .fa-twitter {
 	background: none;
-	color: var(--color-secondary);
+	color: var(--color-primary-light);
 }
