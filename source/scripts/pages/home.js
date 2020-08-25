@@ -7,10 +7,10 @@ window.addEventListener("DOMContentLoaded", function () {
 	const logoImageSelector = "#logo img";
 	const twitterIconImageSelector = "#twitter a img";
 	const twitterAnchorSelector = "#twitter a";
-	const twitterAccountHRef = "https://twitter.com/lilly_armadillo";
+	const twitterAccountHref = "https://twitter.com/lilly_armadillo";
 	document.body.insertAdjacentHTML("beforeend", template);
 	document.querySelector(logoImageSelector).setAttribute("src", faviconPath);
 	document.querySelector(twitterIconImageSelector).setAttribute("src", twitterIconPath);
-	document.querySelector(twitterAnchorSelector).setAttribute("href", twitterAccountHRef);
+	document.querySelector(twitterAnchorSelector).setAttribute("href", twitterAccountHref);
 	document.querySelector("#logo").setAttribute("src", faviconPath);
 });
