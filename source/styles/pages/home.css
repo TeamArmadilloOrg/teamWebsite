@@ -1,6 +1,6 @@
 .navbar {
 	overflow: hidden;
-	background-color: var(--color-secondary-superlight);
+	background-color: var(--color-secondary-lighter);
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -34,7 +34,7 @@ footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background-color: var(--color-secondary-superlight);
+	background-color: var(--color-secondary-lighter);
 	text-align: center;
 }
 
