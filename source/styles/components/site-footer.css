@@ -1,0 +1,29 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--color-secondary-lighter);
+	text-align: center;
+}
+
+footer p {
+	color: var(--color-primary-light);
+}
+
+.fa {
+	padding: 15px;
+	font-size: 35px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.fa:hover {
+	color: var(--color-primary-darker);
+}
+
+.fa-github,
+.fa-twitter {
+	background: none;
+	color: var(--color-primary-light);
+}

@@ -1,4 +1,12 @@
+#team-container {
+	display: flex;
+	align-items: stretch;
+	margin: 0 auto;
+}
+
 .team-member-circle {
+	--team-member-circle: 150px;
+
 	height: var(--team-member-circle);
 	width: var(--team-member-circle);
 	background-color: var(--color-secondary-darker);
@@ -11,10 +19,4 @@
 .team-member-circle:hover {
 	opacity: 0.65;
 	cursor: pointer;
-}
-
-#team-container {
-	display: flex;
-	align-items: stretch;
-	margin: 0 auto;
 }

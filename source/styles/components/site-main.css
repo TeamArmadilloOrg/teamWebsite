@@ -1,0 +1,12 @@
+:root {
+	/* start at height */
+	--main-position-top: var(--header-height);
+}
+
+#site-main {
+	margin-top: var(--main-position-top);
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
