@@ -3,6 +3,6 @@ import template from "@/templates/pages/team.html";
 
 window.addEventListener("DOMContentLoaded", function renderPageContent() {
 	document
-		.querySelector("#site-main")
+		.getElementById("site-main")
 		.insertAdjacentHTML("afterbegin", template);
 });
