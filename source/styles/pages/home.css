@@ -1,23 +1,21 @@
 .navbar {
 	overflow: hidden;
-	background-color: #666666;
+	background-color: var(--color-secondary-lighter);
 	position: fixed;
 	top: 0;
 	width: 100%;
+	display: flex;
+    align-items: center;
 }
 
 .link {
 	float: left;
 	display: block;
-	color: #eeeeee;
+	color: var(--color-primary-dark);
 	text-align: center;
 	padding: 15px 18px;
 	text-decoration: none;
 	font-size: 18px;
-}
-
-.navbar a:hover {
-	color: #1c87c9;
 }
 
 #logo {
@@ -25,4 +23,38 @@
 	display: block;
 	max-width: 50px;
 	max-height: 50px;
+	padding-left: 10px;
+}
+
+.navbar a:hover {
+	color: var(--color-primary-light);
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--color-secondary-lighter);
+	text-align: center;
+}
+
+footer p {
+	color: var(--color-primary-light);
+}
+
+.fa {
+	padding: 15px;
+	font-size: 35px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.fa:hover {
+	color: var(--color-primary-darker);
+  }
+
+.fa-github, .fa-twitter {
+	background: none;
+	color: var(--color-primary-light);
 }
